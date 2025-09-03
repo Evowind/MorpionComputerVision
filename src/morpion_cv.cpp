@@ -229,7 +229,7 @@ public:
             calculateCellCenters(horizontalLines, verticalLines);
             gridDetected = true;
 
-            cout << "Grille détectée: " << gridSize << "x" << gridSize << endl;
+            cout << "Grille detectee: " << gridSize << "x" << gridSize << endl;
             cout << "Cliquez dans une case pour jouer!" << endl;
         }
     }
@@ -457,14 +457,14 @@ public:
         if (checkWin(1)) {
             putText(canvas, "VOUS GAGNEZ!", Point(200, 50), 
                    FONT_HERSHEY_SIMPLEX, 1.5, Scalar(0, 150, 0), 3);
-            cout << "Félicitations! Vous avez gagné!" << endl;
+            cout << "Felicitations! Vous avez gagne!" << endl;
             return true;
         }
         
         if (checkWin(2)) {
             putText(canvas, "L'ORDI GAGNE!", Point(200, 50), 
                    FONT_HERSHEY_SIMPLEX, 1.5, Scalar(0, 0, 200), 3);
-            cout << "L'ordinateur a gagné!" << endl;
+            cout << "L'ordinateur a gagne!" << endl;
             return true;
         }
         

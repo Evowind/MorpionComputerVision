@@ -28,18 +28,18 @@ if "%OPENCV_PATH%"=="" (
     for %%P in (%SEARCH_PATHS%) do (
         if exist "%%P\OpenCVConfig.cmake" (
             set OPENCV_PATH=%%P
-            echo OpenCV trouvé dans: %%P
+            echo OpenCV trouve dans: %%P
             goto opencv_found
         )
         if exist "%%P\x64\vc*" (
             set OPENCV_PATH=%%P
-            echo OpenCV trouvé dans: %%P
+            echo OpenCV trouve dans: %%P
             goto opencv_found
         )
     )
     
-    echo ERREUR: OpenCV non trouvé automatiquement!
-    echo Veuillez spécifier le chemin: build.bat Release C:\chemin\vers\opencv\build
+    echo ERREUR: OpenCV non trouve automatiquement!
+    echo Veuillez specifier le chemin: build.bat Release C:\chemin\vers\opencv\build
     pause
     exit /b 1
 )
@@ -53,7 +53,7 @@ cd build
 
 REM Nettoyer le build précédent si demandé
 if "%3"=="clean" (
-    echo Nettoyage du build précédent...
+    echo Nettoyage du build precedent...
     rmdir /s /q * 2>nul
 )
 
@@ -67,11 +67,11 @@ if not "%OPENCV_PATH%"=="" (
 )
 
 if %ERRORLEVEL% neq 0 (
-    echo ERREUR: Échec de la configuration CMake
+    echo ERREUR: Echec de la configuration CMake
     echo.
     echo Solutions possibles:
-    echo 1. Vérifiez que CMake est installé et dans le PATH
-    echo 2. Vérifiez le chemin d'OpenCV
+    echo 1. Verifiez que CMake est installe et dans le PATH
+    echo 2. Verifiez le chemin d'OpenCV
     echo 3. Installez Visual Studio Build Tools
     pause
     exit /b 1
@@ -83,14 +83,14 @@ echo Compilation...
 cmake --build . --config %BUILD_TYPE% --parallel
 
 if %ERRORLEVEL% neq 0 (
-    echo ERREUR: Échec de la compilation
+    echo ERREUR: Echec de la compilation
     pause
     exit /b 1
 )
 
 echo.
 echo ========================================
-echo    COMPILATION TERMINÉE AVEC SUCCÈS!
+echo    COMPILATION TERMINEE AVEC SUCCES!
 echo ========================================
 
 REM Trouver l'exécutable
@@ -99,12 +99,12 @@ if exist "%BUILD_TYPE%\MorpionComputerVision.exe" (
 ) else if exist "MorpionComputerVision.exe" (
     set EXE_PATH=MorpionComputerVision.exe
 ) else (
-    echo Exécutable trouvé quelque part dans build/
+    echo Executable trouve quelque part dans build/
     set EXE_PATH=
 )
 
 if not "%EXE_PATH%"=="" (
-    echo Exécutable: %CD%\%EXE_PATH%
+    echo Executable: %CD%\%EXE_PATH%
     echo.
     
     REM Demander si on veut lancer le jeu
@@ -114,7 +114,7 @@ if not "%EXE_PATH%"=="" (
         start "" "%EXE_PATH%"
     )
 ) else (
-    echo Recherchez l'exécutable MorpionComputerVision.exe dans le dossier build/
+    echo Recherchez l'executable MorpionComputerVision.exe dans le dossier build/
 )
 
 echo.
