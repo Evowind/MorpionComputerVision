@@ -58,7 +58,11 @@ message(STATUS "OpenCV include dirs: ${OpenCV_INCLUDE_DIRS}")
 
 # Créer l'exécutable
 add_executable(${PROJECT_NAME} 
-    src/morpion_cv.cpp
+    src/main.cpp
+    src/tictactoe_cv.cpp
+    src/grid_detection.cpp
+    src/ai.cpp
+    src/utils.cpp
 )
 
 # Inclure les headers OpenCV
