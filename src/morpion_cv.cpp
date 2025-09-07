@@ -503,7 +503,7 @@ public:
     }
     
     void run() {
-        namedWindow("Morpion Computer Vision", WINDOW_AUTOSIZE);
+        namedWindow("Morpion Computer Vision", WINDOW_NORMAL);
         setMouseCallback("Morpion Computer Vision", onMouse, this);
 
         
